@@ -10,7 +10,7 @@ if not os.path.exists(UPLOAD_FOLDER):
     os.makedirs(UPLOAD_FOLDER)
 
 def connect_to_database():
-    client = MongoClient("mongodb://localhost:27017/")
+    client = MongoClient("")#Fill in your own MongoClient
     return client["resume_analyzer"]
 
 db = connect_to_database()
@@ -257,17 +257,6 @@ def main_menu():
             print("Invalid choice. Try again.")
 
 main_menu()
-
-
-# participant_name = "AFRIYAN ATHAARIQ"
-
-# job_title = get_job_title_from_db()
-
-# # testing_cv(participant_name, job_title)
-
-# job = jobs_collection.find_one({"title": job_title}, {"job_qualifications": 1, "skills": 1, "_id": 0})
-# qualifications = job.get("job_qualifications", "")
-# skills_needed = job.get("skills", "")
 
 
 # print(f'qualifications: {qualifications} \n skills_needed: {skills_needed}')
