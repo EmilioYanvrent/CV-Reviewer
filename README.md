@@ -1,60 +1,52 @@
-## 🧾 CV Reviewer AI — Intelligent Resume Evaluation System
+# 🧠 CV Reviewer (LLM + RAG)
 
-**CV Reviewer AI** is an automated system designed to evaluate candidate resumes by combining **Large Language Model (LLM) reasoning** and **data-driven scoring**. It assists HR teams in screening and ranking applicants efficiently based on job-specific qualifications and skills.
-
-### 💡 Key Features
-
-* **Automated Resume Extraction:**
-  Utilizes `pdfplumber` to extract text from multiple CVs in PDF format.
-
-* **AI-Powered Qualification Analysis:**
-  Employs **DeepSeek-R1 Distill Qwen-7B**, a transformer-based LLM, to evaluate how well each CV aligns with specific job qualifications stored in a MongoDB database.
-
-* **Skill Matching Engine:**
-  Performs keyword-based skill matching to quantify the overlap between candidate skills and job requirements.
-
-* **Dynamic Scoring System:**
-  Generates two core scores — *Skills Match Score* and *Qualifications Match Score* — then provides an overall *Suitability Assessment*.
-
-* **Structured Candidate Report:**
-  Produces a detailed report including:
-
-  1. **Summary:** Candidate background overview
-  2. **Strengths:** Highlighted capabilities
-  3. **Weaknesses:** Areas for improvement
-  4. **Skills:** Extracted relevant competencies
-
-* **Database Integration:**
-  Connects to MongoDB for managing job listings, participant data, and saving or updating AI analysis results automatically.
-
-* **Batch Processing Mode:**
-  Supports analyzing multiple CVs in a folder, allowing mass candidate evaluation in one run.
+AI-powered CV evaluation system that analyzes resumes using Large Language Models (LLMs) and Retrieval-Augmented Generation (RAG) to provide more accurate and context-aware candidate assessments.
 
 ---
 
-### ⚙️ Tech Stack
+## 🚀 Overview
 
-* **Language:** Python
-* **AI Model:** DeepSeek-R1 Distill Qwen-7B
-* **Libraries:** Transformers, pdfplumber, PyMongo, Torch, Tkinter
-* **Database:** MongoDB
-* **Environment:** Local LLM deployment with GPU offloading support
+Manual CV screening is time-consuming, inconsistent, and often keyword-based.  
+This project solves that by leveraging **LLMs + RAG pipeline** to perform **semantic evaluation** of resumes, improving the quality and efficiency of candidate screening.
 
 ---
 
-### 🧠 Workflow Overview
+## ✨ Features
 
-1. Select a folder containing CVs (`.pdf` files).
-2. Choose a target job title from the MongoDB database.
-3. For each CV:
-
-   * Extract text content.
-   * Evaluate skills and qualifications via the LLM.
-   * Compute match scores and suitability.
-   * Save the structured analysis to MongoDB.
+- 📄 Resume parsing and preprocessing  
+- 🧠 Semantic CV evaluation using LLM  
+- 🔍 Context-aware retrieval with RAG  
+- 📊 Structured output for candidate insights  
+- ⚡ Faster and more consistent screening compared to manual review  
 
 ---
 
-### 📈 Outcome
+## 🏗️ Tech Stack
 
-The system provides a **consistent, explainable, and automated** way to evaluate resumes — reducing manual screening time while maintaining analytical depth. It bridges AI research with HR process automation through **LLM-based reasoning** and **data integration**.
+- **Language:** Python  
+- **LLM Framework:** LangChain  
+- **LLM Runtime:** Ollama / OpenAI API  
+- **Vector Database:** FAISS  
+- **Database:** PostgreSQL (optional for structured data)  
+- **Libraries:** Pandas, NumPy  
+
+---
+
+## 🧩 System Architecture
+
+```text
+[ CV Input ]
+      ↓
+[ Text Extraction / Parsing ]
+      ↓
+[ Chunking ]
+      ↓
+[ Embedding Generation ]
+      ↓
+[ Vector Storage (FAISS) ]
+      ↓
+[ Retrieval (Top-K relevant chunks) ]
+      ↓
+[ LLM Evaluation (via LangChain) ]
+      ↓
+[ Structured Output / Insights ]
